@@ -4,6 +4,8 @@ O HydroDataViewer é um aplicativo baseado em Django que consome a API da Agênc
 
 ## Recursos
 
+- **Salvar arquivos em XML, CSV e XLSX:** 
+
 - **Integração da API da ANA:** O HydroDataViewer utiliza a biblioteca Requests do Python para realizar solicitações HTTP à API da ANA, buscando os dados hidrometeorológicos atualizados da estação escolhida.
 - **Modelos do Django:** O projeto possui modelos Django que representam as informações da estação, incluindo código, nome e localização. Além disso, os dados hidrometeorológicos detalhados, como datas, níveis de água, precipitação, entre outros, são armazenados no banco de dados.
 - **Visualização de dados:** O HydroDataViewer apresenta os dados hidrometeorológicos de forma clara e intuitiva por meio de gráficos, tabelas e outros elementos visuais, permitindo aos usuários compreender as informações de maneira fácil e rápida.
@@ -18,3 +20,7 @@ O HydroDataViewer é um aplicativo baseado em Django que consome a API da Agênc
    ```bash
    git clone https://github.com/seu-usuario/hydrodataviewer.git
 
+2. Instale as dependências do projeto:
+
+   cd hydrodataviewer
+   pip install -r requirements.txt
