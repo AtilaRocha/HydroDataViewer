@@ -7,6 +7,11 @@ import json
 import xmltodict
 
 
+def verificar_pasta(caminho):
+    if not os.path.exists(caminho):
+        os.makedirs(caminho)
+        print(f"Pasta criada: {caminho}")
+
 def convertXMLtoCSV(pathXML, xml_file, codigoEstacao, dataInicio, dataFim, pathCSV):
     try:
         # Construindo o nome do arquivo de saída
