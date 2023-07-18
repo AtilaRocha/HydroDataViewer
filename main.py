@@ -5,8 +5,8 @@ import os
 # dataInicio = str(input("Digite a data inicial (ex.: 06/06/2023): "))
 # dataFim = str(input("Digite a data final (ex.: 06/06/2023): "))
 # codigoEstacao = str(input("Digite o código da Estação (ex.: 33281000): "))
-dataInicio = '09/07/2023'
-dataFim = '09/07/2023'
+dataInicio = '14/07/2023'
+dataFim = '14/07/2023'
 
 # Obter o diretório atual do projeto
 diretorio_projeto = os.getcwd()

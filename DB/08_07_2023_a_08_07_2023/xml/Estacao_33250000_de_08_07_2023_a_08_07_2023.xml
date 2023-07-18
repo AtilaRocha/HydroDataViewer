@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DataTable xmlns="http://MRCS/">
+  <xs:schema id="NewDataSet" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xs:element name="NewDataSet" msdata:IsDataSet="true" msdata:MainDataTable="DadosHidrometereologicos" msdata:UseCurrentLocale="true">
+      <xs:complexType>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element name="DadosHidrometereologicos">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="CodEstacao" type="xs:string" minOccurs="0" />
+                <xs:element name="DataHora" type="xs:string" minOccurs="0" />
+                <xs:element name="Vazao" type="xs:string" minOccurs="0" />
+                <xs:element name="Nivel" type="xs:string" minOccurs="0" />
+                <xs:element name="Chuva" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:choice>
+      </xs:complexType>
+    </xs:element>
+  </xs:schema>
+  <diffgr:diffgram xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:diffgr="urn:schemas-microsoft-com:xml-diffgram-v1">
+    <DocumentElement xmlns="">
+      <DadosHidrometereologicos diffgr:id="DadosHidrometereologicos1" msdata:rowOrder="0">
+        <CodEstacao>33250000</CodEstacao>
+        <DataHora>2023-07-08 17:00:00 </DataHora>
+        <Vazao>38.13</Vazao>
+        <Nivel>154.00</Nivel>
+        <Chuva />
+      </DadosHidrometereologicos>
+      <DadosHidrometereologicos diffgr:id="DadosHidrometereologicos2" msdata:rowOrder="1">
+        <CodEstacao>33250000</CodEstacao>
+        <DataHora>2023-07-08 07:00:00 </DataHora>
+        <Vazao>38.69</Vazao>
+        <Nivel>155.00</Nivel>
+        <Chuva />
+      </DadosHidrometereologicos>
+    </DocumentElement>
+  </diffgr:diffgram>
+</DataTable>
