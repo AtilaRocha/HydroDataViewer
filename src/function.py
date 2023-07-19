@@ -180,7 +180,6 @@ def processar_estacoes(data, estacoes):
         except Exception as e:
             print(f"Ocorreu um erro durante a conversão da estação {codigoEstacao}:", str(e))
     criar_arquivo_RDE(pathCSV, pathXLSX, pathdata)
-
 def definir_datas():
     # Pedir a data inicial ao usuário
     data_inicial_str = input("Digite a data inicial (no formato DD/MM/AAAA): ")
@@ -201,3 +200,5 @@ def definir_datas():
 
     return datas    
     
+
+
