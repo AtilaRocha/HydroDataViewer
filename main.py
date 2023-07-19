@@ -1,4 +1,4 @@
-from src.function import processar_estacoes, definir_datas
+from src.function import processar_estacoes, definir_datas, deletar_arquivos_gerados
 import os
 
 # Datas para processar
@@ -10,3 +10,8 @@ estacoes = ['946005', '23310000', '23466000', '23490000', '23790000', '33250000'
 # Iterar sobre as datas
 for data in datas:
     processar_estacoes(data, estacoes)
+
+# Perguntar ao usuário se deseja deletar os arquivos gerados
+resposta = input("Deseja deletar os arquivos gerados? (S/N): ")
+if resposta.upper() == 'S':
+    deletar_arquivos_gerados()

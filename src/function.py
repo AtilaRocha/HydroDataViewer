@@ -1,4 +1,4 @@
-import requests, xml.etree.ElementTree as ET, os, json, xmltodict, openpyxl, pandas as pd, sqlite3, csv, datetime
+import requests, xml.etree.ElementTree as ET, os, json, xmltodict, openpyxl, pandas as pd, sqlite3, csv, datetime, shutil
 
 def verificar_pasta(caminho):
     if not os.path.exists(caminho):
@@ -142,7 +142,7 @@ def importar_dados_csv_para_sqlite(csvFile, pathDB):
     # Commit das alterações e fechamento da conexão
     conexao.commit()
     conexao.close()
-def processar_estacoes(data, estacoes):
+def processar_estacoes(data, estacoes, deletar_arquivos=False):
     # Obter o diretório atual do projeto
     diretorio_projeto = os.getcwd()
 
@@ -179,7 +179,59 @@ def processar_estacoes(data, estacoes):
 
         except Exception as e:
             print(f"Ocorreu um erro durante a conversão da estação {codigoEstacao}:", str(e))
+            
     criar_arquivo_RDE(pathCSV, pathXLSX, pathdata)
+    
+    # Deletar os arquivos gerados se necessário
+    if deletar_arquivos:
+        deletar_arquivos_gerados(pathCSV, pathXLSX)
+def deletar_arquivos_gerados():
+    try:
+        # Obter o diretório atual do projeto
+        diretorio_projeto = os.getcwd()
+
+        # Caminhos completos para as pastas de CSV, XLSX e XML
+        pathCSV = os.path.join(diretorio_projeto, 'DB')
+        pathXLSX = os.path.join(diretorio_projeto, 'DB')
+        pathXML = os.path.join(diretorio_projeto, 'DB')
+
+        # Deletar arquivos CSV e XLSX
+        for arquivo in os.listdir(pathCSV):
+            if arquivo.endswith(".csv") or arquivo.endswith(".xlsx"):
+                caminho_arquivo = os.path.join(pathCSV, arquivo)
+                os.remove(caminho_arquivo)
+
+        for arquivo in os.listdir(pathXLSX):
+            if arquivo.endswith(".xlsx"):
+                caminho_arquivo = os.path.join(pathXLSX, arquivo)
+                os.remove(caminho_arquivo)
+
+        # Deletar arquivos XML
+        for arquivo in os.listdir(pathXML):
+            if arquivo.endswith(".xml"):
+                caminho_arquivo = os.path.join(pathXML, arquivo)
+                os.remove(caminho_arquivo)
+
+        # Deletar pastas com datas
+        for pasta in os.listdir(pathCSV):
+            caminho_pasta = os.path.join(pathCSV, pasta)
+            if os.path.isdir(caminho_pasta):
+                shutil.rmtree(caminho_pasta)
+
+        for pasta in os.listdir(pathXLSX):
+            caminho_pasta = os.path.join(pathXLSX, pasta)
+            if os.path.isdir(caminho_pasta):
+                shutil.rmtree(caminho_pasta)
+
+        for pasta in os.listdir(pathXML):
+            caminho_pasta = os.path.join(pathXML, pasta)
+            if os.path.isdir(caminho_pasta):
+                shutil.rmtree(caminho_pasta)
+
+        print("Arquivos deletados com sucesso.")
+
+    except Exception as e:
+        print("Ocorreu um erro ao deletar os arquivos e pastas:", str(e))
 def definir_datas():
     # Pedir a data inicial ao usuário
     data_inicial_str = input("Digite a data inicial (no formato DD/MM/AAAA): ")
